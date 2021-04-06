@@ -9,10 +9,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class lambdaTest {
+public class lambdaStepsTest {
     @Test
     //TODO: пример ссылки на динамические логи
-    public void searchForIssue() {
+    public void lambdaSearchForIssue() {
         step("Открываем главную страницу", () -> open("https://github.com"));
         step("Ищем репозиторий", ()-> {
             $(".header-search-input").click();
