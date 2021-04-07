@@ -19,9 +19,9 @@ public class SelenideTest {
 
     @Test
     @Owner("pulsaronline")
-    @Feature("Работа с разметкой")
-    @Story("Разметка аннотаций")
-    @Severity(SeverityLevel.BLOCKER)
+    @Feature("Используем библиотеку Allure для логов")
+    @Story("Также пользуемся разметкой аннотаций")
+    @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Base_URL", url = BASE_URL)
     @DisplayName("Селенидовский логгер")
 
