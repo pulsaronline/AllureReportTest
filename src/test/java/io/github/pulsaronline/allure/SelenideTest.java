@@ -1,7 +1,9 @@
 package io.github.pulsaronline.allure;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -21,9 +23,10 @@ public class SelenideTest {
     @Story("Разметка аннотаций")
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Base_URL", url = BASE_URL)
-    @DisplayName("Пример теста с аннотациями")
+    @DisplayName("Селенидовский логгер")
 
     public void selenideIssueTest(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         //"Открываем главную страницу"
         open(BASE_URL);
         //"Ищем репозиторий"
@@ -33,7 +36,7 @@ public class SelenideTest {
         //"Переходим в репозиторий"
         $(By.linkText(REPOSITORY)).click();
         //"Переходим в Issues"
-        $(withText("Issue")).click();
+        $(withText("Issue12")).click();
         //"Проверяем что About существует"
         $(withText("About")).should(Condition.exist);
         }

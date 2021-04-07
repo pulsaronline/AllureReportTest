@@ -1,6 +1,7 @@
 package io.github.pulsaronline.allure;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -15,6 +16,8 @@ public class lambdaStepsTest {
     @Test
     //TODO: пример ссылки на динамические логи
     public void lambdaSearchForIssue() {
+        Allure.parameter("Repository", REPOSITORY);
+
         step("Открываем главную страницу", (step) -> {
         step.parameter("url", BASE_URL);
         open(BASE_URL);
