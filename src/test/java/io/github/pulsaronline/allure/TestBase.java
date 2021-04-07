@@ -9,6 +9,5 @@ public class TestBase {
     @BeforeAll
     static public void setup() {
         Configuration.browserSize = "1024x768";
-        open("https://demoqa.com/automation-practice-form");
     }
 }

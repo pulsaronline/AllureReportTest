@@ -11,26 +11,26 @@ import static io.qameta.allure.Allure.step;
 
 public class WebSteps {
 
-    @Step
-    public void openMainPage() {
-        open("https://github.com");
-    }
-    @Step
+   @Step("Открываем главную страницу")
+   public void openMainPage() {
+       open("https://github.com");
+   }
+    @Step("Ищем репозиторий {repository}")
     public void searchForRepository(String repository){
         $(".header-search-input").click();
         $(".header-search-input").sendKeys(repository);
         $(".header-search-input").submit();
     }
-    @Step
+    @Step("Переходим в репозиторий {repository}")
     public void goToRepository(String repository) {
         $(By.linkText(repository)).click();
     }
-    @Step
+    @Step("Переходим в Issues")
     public void clickOnIssueTab() {
         $(withText("Issue")).click();
     }
-    @Step
+    @Step("Проверяем что About существует")
     public void shouldSeeIssue() {
-        $(withText("Issue")).should(Condition.exist);
+        $(withText("About")).should(Condition.exist);
     }
 }

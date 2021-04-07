@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 public class AnnotatedStepsTest {
 
     private final static String repository = "pulsaronline/AllureReportTest";
-
-    private WebSteps steps = new WebSteps();
+    private final WebSteps steps = new WebSteps();
 
     @Test
     public void annotatedSearchForIssue() {

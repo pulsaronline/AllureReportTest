@@ -10,19 +10,25 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 public class lambdaStepsTest {
+    private final String BASE_URL = "https://github.com";
+    private final String REPOSITORY = "pulsaronline/AllureReportTest";
     @Test
     //TODO: пример ссылки на динамические логи
     public void lambdaSearchForIssue() {
-        step("Открываем главную страницу", () -> open("https://github.com"));
-        step("Ищем репозиторий", ()-> {
+        step("Открываем главную страницу", (step) -> {
+        step.parameter("url", BASE_URL);
+        open(BASE_URL);
+        });
+        step("Ищем репозиторий", (step)-> {
+            step.parameter("Repository", REPOSITORY);
             $(".header-search-input").click();
-            $(".header-search-input").sendKeys("pulsaronline/AllureReportTest");
+            $(".header-search-input").sendKeys(REPOSITORY);
             $(".header-search-input").submit();
         });
-        step("Переходим в репозиторий", ()-> $(By.linkText("pulsaronline/AllureReportTest")).click());
+        step("Переходим в репозиторий", ()-> $(By.linkText(REPOSITORY)).click());
         step("Переходим в Issues", ()-> $(withText("Issue")).click());
-        step("Проверяем что Issues существует", ()-> {
-            $(withText("Issue")).should(Condition.exist);
+        step("Проверяем что About существует", ()-> {
+            $(withText("About")).should(Condition.exist);
         });
     }
 }
