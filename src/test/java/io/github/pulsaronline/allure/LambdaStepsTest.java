@@ -10,14 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class lambdaStepsTest {
+public class LambdaStepsTest {
     private final String BASE_URL = "https://github.com";
     private final String REPOSITORY = "pulsaronline/AllureReportTest";
+
     @Test
     //TODO: пример ссылки на динамические логи
     public void lambdaSearchForIssue() {
         Allure.parameter("Repository", REPOSITORY);
-
         step("Открываем главную страницу", (step) -> {
         step.parameter("url", BASE_URL);
         open(BASE_URL);

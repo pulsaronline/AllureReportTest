@@ -9,11 +9,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class WebSteps {
-
     @Step("Открываем главную страницу")
-   public void openMainPage() {
-       open("https://github.com");
-   }
+    public void openMainPage() {open("https://github.com");}
     @Step("Ищем репозиторий {repository}")
     public void searchForRepository(String repository){
         $(".header-search-input").click();

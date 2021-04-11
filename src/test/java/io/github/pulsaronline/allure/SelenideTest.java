@@ -24,7 +24,6 @@ public class SelenideTest {
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Base_URL", url = BASE_URL)
     @DisplayName("Селенидовский логгер")
-
     public void selenideIssueTest(){
         SelenideLogger.addListener("allure", new AllureSelenide());
         //"Открываем главную страницу"
@@ -36,7 +35,7 @@ public class SelenideTest {
         //"Переходим в репозиторий"
         $(By.linkText(REPOSITORY)).click();
         //"Переходим в Issues"
-        $(withText("Issue12")).click();
+        $(withText("Issue")).click();
         //"Проверяем что About существует"
         $(withText("About")).should(Condition.exist);
         }

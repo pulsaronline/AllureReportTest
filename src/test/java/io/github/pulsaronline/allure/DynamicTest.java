@@ -9,11 +9,9 @@ public class DynamicTest {
 private final String uuid = UUID.randomUUID().toString();
 
     @Test
-    void testDynamic(){
+    void testDynamic() {
         open("https://github.com?session=" + uuid);
-        Allure.getLifecycle().updateTestCase(tc -> {
-            tc.setName("Динамический тест");
-        });
+        Allure.getLifecycle().updateTestCase(tc -> tc.setName("Динамический тест"));
         Allure.label("owner", "pulsaronline");
         Allure.feature("Работа с разметкой");
         Allure.story("Динамическая разметка аннотаций");
